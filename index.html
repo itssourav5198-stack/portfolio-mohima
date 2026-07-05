@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohima Shuklabaidya — Vocalist Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  :root{
+    --bg: #FFF6F4;
+    --bg-alt: #FFEDEF;
+    --surface: #FFFFFF;
+    --ink: #3E2431;
+    --ink-soft: #6E4C58;
+    --rose: #C9838E;
+    --rose-deep: #A85A68;
+    --gold: #C9A66B;
+    --wine: #7C3D4C;
+    --line: rgba(124,61,76,0.14);
+    --shadow: 0 20px 50px rgba(168,90,104,0.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Jost', sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.serif{font-family:'Playfair Display', serif;}
+  a{color:inherit;text-decoration:none;}
+  .container{max-width:1120px;margin:0 auto;padding:0 32px;}
+  section{padding:120px 0;position:relative;}
+  .eyebrow{
+    font-size:12px;letter-spacing:3px;text-transform:uppercase;
+    color:var(--rose-deep);font-weight:500;margin-bottom:14px;display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);display:inline-block;}
+  h2{font-size:clamp(30px,4vw,44px);font-weight:600;margin-bottom:44px;}
+  h2 em{color:var(--rose-deep);font-style:italic;}
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(255,246,244,0.85);backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{max-width:1120px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;}
+  .logo{font-family:'Playfair Display',serif;font-weight:600;font-size:20px;letter-spacing:0.5px;}
+  .logo em{font-style:italic;color:var(--rose-deep);}
+  .nav-links{display:flex;gap:34px;font-size:14px;font-weight:400;}
+  .nav-links a{opacity:0.75;transition:opacity .25s;}
+  .nav-links a:hover{opacity:1;color:var(--rose-deep);}
+  .nav-cta{
+    background:var(--wine);color:#fff;padding:10px 22px;border-radius:100px;font-size:13px;letter-spacing:0.5px;
+    transition:transform .25s, box-shadow .25s;
+  }
+  .nav-cta:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(124,61,76,0.30);}
+  .burger{display:none;font-size:20px;cursor:pointer;}
+
+  /* HERO */
+  .hero{
+    min-height:100vh;display:flex;align-items:center;
+    padding-top:120px;
+    background:
+      radial-gradient(ellipse at 80% 10%, rgba(201,166,107,0.14), transparent 55%),
+      radial-gradient(ellipse at 10% 90%, rgba(201,131,142,0.16), transparent 55%),
+      var(--bg);
+    position:relative;overflow:hidden;
+  }
+  .hero-inner{display:grid;grid-template-columns:1.15fr 0.85fr;gap:60px;align-items:center;}
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--surface);border:1px solid var(--line);border-radius:100px;
+    padding:8px 16px;font-size:12px;letter-spacing:1px;color:var(--wine);
+    margin-bottom:26px;box-shadow:var(--shadow);
+  }
+  .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.35;}}
+  .hero h1{
+    font-size:clamp(48px,7vw,84px);font-weight:600;line-height:1.02;letter-spacing:-1px;
+  }
+  .hero h1 em{font-style:italic;color:var(--rose-deep);}
+  .hero-tags{
+    display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 22px;font-size:14px;color:var(--ink-soft);
+  }
+  .hero-tags span::after{content:'·';margin-left:10px;color:var(--gold);}
+  .hero-tags span:last-child::after{content:'';}
+  .hero p.desc{max-width:480px;color:var(--ink-soft);font-size:16px;margin-bottom:34px;}
+  .btn-row{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn{
+    padding:15px 30px;border-radius:100px;font-size:14px;font-weight:500;letter-spacing:0.3px;
+    display:inline-flex;align-items:center;gap:8px;transition:all .25s;
+  }
+  .btn-primary{background:var(--wine);color:#fff;}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 28px rgba(124,61,76,0.32);}
+  .btn-outline{border:1.5px solid var(--rose-deep);color:var(--wine);}
+  .btn-outline:hover{background:var(--surface);transform:translateY(-3px);}
+
+  /* waveform signature */
+  .waveform{display:flex;align-items:flex-end;gap:4px;height:34px;margin-top:34px;}
+  .waveform i{
+    width:4px;background:linear-gradient(180deg,var(--gold),var(--rose-deep));border-radius:2px;
+    animation:wave 1.4s ease-in-out infinite;
+  }
+  @keyframes wave{0%,100%{height:8px;}50%{height:32px;}}
+
+  .hero-visual{position:relative;display:flex;justify-content:center;}
+  .portrait-frame{
+    width:100%;max-width:340px;aspect-ratio:3/3.7;border-radius:24px 24px 100px 24px;
+    background:linear-gradient(160deg,var(--bg-alt),var(--surface));
+    border:1px solid var(--line);box-shadow:var(--shadow);
+    display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
+  }
+  .portrait-frame::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(circle at 30% 20%, rgba(201,166,107,0.25), transparent 60%);
+  }
+  .portrait-frame .initial{font-family:'Playfair Display',serif;font-style:italic;font-size:120px;color:var(--rose-deep);opacity:0.5;}
+  .ring{
+    position:absolute;border:1.5px dashed var(--gold);border-radius:50%;opacity:0.5;
+  }
+  .ring.r1{width:120%;height:120%;top:-10%;left:-10%;animation:spin 40s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;align-items:start;}
+  .about-grid p{color:var(--ink-soft);margin-bottom:18px;font-size:16px;max-width:520px;}
+  .stat-row{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;margin-top:10px;}
+  .stat{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px;box-shadow:var(--shadow);}
+  .stat .num{font-family:'Playfair Display',serif;font-size:34px;font-weight:600;color:var(--rose-deep);}
+  .stat .label{font-size:13px;color:var(--ink-soft);margin-top:4px;}
+
+  /* SKILLS */
+  .skills-cols{display:grid;grid-template-columns:1fr 1fr;gap:60px;}
+  .skill-block h3{font-size:18px;margin-bottom:22px;color:var(--wine);}
+  .skill-item{margin-bottom:20px;}
+  .skill-item .top{display:flex;justify-content:space-between;font-size:14px;margin-bottom:8px;}
+  .bar{height:6px;background:var(--bg-alt);border-radius:100px;overflow:hidden;}
+  .bar span{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--rose-deep));border-radius:100px;}
+  .genre-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px;}
+  .genre-tags span{
+    background:var(--surface);border:1px solid var(--line);padding:8px 16px;border-radius:100px;font-size:13px;color:var(--wine);
+  }
+
+  /* EDUCATION */
+  .edu-list{display:flex;flex-direction:column;gap:0;}
+  .edu-item{
+    display:grid;grid-template-columns:56px 1fr auto;gap:22px;align-items:start;
+    padding:30px 0;border-top:1px solid var(--line);
+  }
+  .edu-item:last-child{border-bottom:1px solid var(--line);}
+  .edu-icon{
+    width:52px;height:52px;border-radius:14px;background:var(--bg-alt);
+    display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--rose-deep);
+  }
+  .edu-item h3{font-size:19px;margin-bottom:4px;}
+  .edu-item .school{color:var(--ink-soft);font-size:14px;}
+  .edu-item .when{font-size:13px;color:var(--gold);white-space:nowrap;text-align:right;font-weight:500;letter-spacing:0.3px;}
+  .status-pill{
+    display:inline-block;margin-top:8px;font-size:11px;letter-spacing:0.5px;text-transform:uppercase;
+    background:rgba(201,166,107,0.16);color:var(--rose-deep);padding:4px 10px;border-radius:100px;
+  }
+
+  /* COVERS */
+  .covers-note{
+    background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:40px;
+    box-shadow:var(--shadow);margin-bottom:40px;display:flex;gap:24px;align-items:center;flex-wrap:wrap;
+  }
+  .covers-note i{font-size:30px;color:var(--rose-deep);}
+  .genre-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .genre-card{
+    background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:30px 26px;
+    box-shadow:var(--shadow);transition:transform .3s;
+  }
+  .genre-card:hover{transform:translateY(-6px);}
+  .genre-card .icon{font-size:22px;color:var(--gold);margin-bottom:14px;}
+  .genre-card h3{font-size:18px;margin-bottom:8px;}
+  .genre-card p{font-size:14px;color:var(--ink-soft);}
+  .yt-cta{
+    margin-top:44px;text-align:center;
+  }
+
+  /* CONTACT */
+  .contact-wrap{
+    background:linear-gradient(160deg,var(--wine),#5C2836);
+    border-radius:28px;padding:70px 60px;color:#fff;position:relative;overflow:hidden;
+  }
+  .contact-wrap::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(circle at 85% 15%, rgba(201,166,107,0.35), transparent 55%);
+  }
+  .contact-inner{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:50px;}
+  .contact-wrap h2{color:#fff;}
+  .contact-wrap h2 em{color:#F0D9B5;}
+  .contact-list{display:flex;flex-direction:column;gap:22px;margin-top:20px;}
+  .contact-list a, .contact-list .row{
+    display:flex;align-items:center;gap:16px;font-size:15px;
+  }
+  .contact-list .ic{
+    width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,0.12);
+    display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;
+  }
+  .contact-list .lbl{font-size:12px;opacity:0.65;text-transform:uppercase;letter-spacing:1px;}
+  .social-row{display:flex;gap:14px;margin-top:30px;}
+  .social-row a{
+    width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,0.12);
+    display:flex;align-items:center;justify-content:center;transition:all .25s;
+  }
+  .social-row a:hover{background:#F0D9B5;color:var(--wine);transform:translateY(-4px);}
+
+  footer{
+    text-align:center;padding:36px 0;font-size:13px;color:var(--ink-soft);
+    border-top:1px solid var(--line);
+  }
+  footer em{color:var(--rose-deep);font-style:italic;}
+
+  @media(max-width:860px){
+    .nav-links{display:none;}
+    .hero-inner{grid-template-columns:1fr;text-align:center;}
+    .hero p.desc{margin-left:auto;margin-right:auto;}
+    .btn-row{justify-content:center;}
+    .waveform{justify-content:center;}
+    .about-grid, .skills-cols, .contact-inner{grid-template-columns:1fr;}
+    .genre-cards{grid-template-columns:1fr;}
+    .stat-row{grid-template-columns:1fr 1fr;}
+    section{padding:80px 0;}
+    .contact-wrap{padding:44px 26px;}
+    .edu-item{grid-template-columns:44px 1fr;}
+    .edu-item .when{grid-column:2;text-align:left;margin-top:4px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Mohima <em>Shuklabaidya</em></div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#ventures">Ventures</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#covers">Covers</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="nav-cta">Connect</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div>
+      <div class="badge"><span class="dot"></span> Co-Founder · LyroWeb · Mr Lyricist · Sohima</div>
+      <h1>Mohima <em>Shuklabaidya</em></h1>
+      <div class="hero-tags">
+        <span>Singer</span><span>Co-Founder</span><span>Vocalist</span><span>Zoology Honours Student</span>
+      </div>
+      <p class="desc">A voice shaped by riyaz and quiet discipline, and a partner behind the scenes at LyroWeb Solutions, Mr. Lyricist Distributor, and Sohima Production — building alongside singing covers across Bollywood, Sufi and folk, while pursuing Zoology Honours and a diploma in computer applications.</p>
+      <div class="btn-row">
+        <a href="https://youtube.com/@lyrical-moh" target="_blank" class="btn btn-primary"><i class="fa-solid fa-play"></i> Listen to Covers</a>
+        <a href="#contact" class="btn btn-outline"><i class="fa-regular fa-envelope"></i> Get in Touch</a>
+      </div>
+      <div class="waveform" aria-hidden="true">
+        <i style="animation-delay:0s"></i><i style="animation-delay:0.1s"></i><i style="animation-delay:0.2s"></i>
+        <i style="animation-delay:0.3s"></i><i style="animation-delay:0.15s"></i><i style="animation-delay:0.25s"></i>
+        <i style="animation-delay:0.05s"></i><i style="animation-delay:0.35s"></i><i style="animation-delay:0.2s"></i>
+        <i style="animation-delay:0.1s"></i><i style="animation-delay:0.3s"></i><i style="animation-delay:0s"></i>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="portrait-frame">
+        <div class="ring r1"></div>
+        <span class="initial">M</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container about-grid">
+    <div>
+      <div class="eyebrow">Who I Am</div>
+      <h2>Music First, <em>Curiosity Always</em></h2>
+    </div>
+    <div>
+      <p>I'm a singer who found her voice through covers — Bollywood romance, Sufi longing, and folk roots — reinterpreted in my own tone and phrasing rather than performed as imitation.</p>
+      <p>Beyond music, I co-founded and help build three ventures alongside my partner: LyroWeb Solutions (digital services), Mr. Lyricist Distributor (music label & distribution), and Sohima Production (cinematic content studio). Alongside all of this, I'm currently pursuing Zoology Honours and an ADCA (Advanced Diploma in Computer Applications) in college — singing stays the constant thread through it all.</p>
+      <div class="stat-row">
+        <div class="stat"><div class="num">3</div><div class="label">Ventures Co-Founded</div></div>
+        <div class="stat"><div class="num">3+</div><div class="label">Genres Covered</div></div>
+        <div class="stat"><div class="num">2</div><div class="label">Courses In Progress</div></div>
+        <div class="stat"><div class="num">1</div><div class="label">Featured Vocal Credit</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ventures">
+  <div class="container">
+    <div class="eyebrow">Business</div>
+    <h2>Ventures I <em>Co-Founded</em></h2>
+    <div class="genre-cards">
+      <div class="genre-card">
+        <div class="icon"><i class="fa-solid fa-code"></i></div>
+        <h3>LyroWeb Solutions</h3>
+        <p>Co-Founder — a digital services and web design agency building websites, portals, and digital products.</p>
+      </div>
+      <div class="genre-card">
+        <div class="icon"><i class="fa-solid fa-record-vinyl"></i></div>
+        <h3>Mr. Lyricist Distributor</h3>
+        <p>Co-Founder — a music label and distribution platform, operating in partnership with Divine Epic.</p>
+      </div>
+      <div class="genre-card">
+        <div class="icon"><i class="fa-solid fa-film"></i></div>
+        <h3>Sohima Production</h3>
+        <p>Co-Founder — a cinematic content studio producing books, audiobooks, and animated experiences.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" style="background:var(--bg-alt);">
+  <div class="container">
+    <div class="eyebrow">What I Bring</div>
+    <h2>Skills & <em>Practice</em></h2>
+    <div class="skills-cols">
+      <div class="skill-block">
+        <h3><i class="fa-solid fa-microphone"></i>&nbsp; Vocal Skills</h3>
+        <div class="skill-item">
+          <div class="top"><span>Cover Rendition</span><span>92%</span></div>
+          <div class="bar"><span style="width:92%"></span></div>
+        </div>
+        <div class="skill-item">
+          <div class="top"><span>Riyaz & Vocal Control</span><span>88%</span></div>
+          <div class="bar"><span style="width:88%"></span></div>
+        </div>
+        <div class="skill-item">
+          <div class="top"><span>Emotive Expression</span><span>90%</span></div>
+          <div class="bar"><span style="width:90%"></span></div>
+        </div>
+        <div class="skill-item">
+          <div class="top"><span>Live Performance</span><span>80%</span></div>
+          <div class="bar"><span style="width:80%"></span></div>
+        </div>
+        <div class="genre-tags">
+          <span>Bollywood</span><span>Sufi</span><span>Folk</span><span>Romantic</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h3><i class="fa-solid fa-laptop"></i>&nbsp; Academic & Computer</h3>
+        <div class="skill-item">
+          <div class="top"><span>MS Office Suite</span><span>85%</span></div>
+          <div class="bar"><span style="width:85%"></span></div>
+        </div>
+        <div class="skill-item">
+          <div class="top"><span>Computer Fundamentals</span><span>82%</span></div>
+          <div class="bar"><span style="width:82%"></span></div>
+        </div>
+        <div class="skill-item">
+          <div class="top"><span>Academic Research (Zoology)</span><span>84%</span></div>
+          <div class="bar"><span style="width:84%"></span></div>
+        </div>
+        <div class="skill-item">
+          <div class="top"><span>Typing & Data Entry</span><span>78%</span></div>
+          <div class="bar"><span style="width:78%"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="container">
+    <div class="eyebrow">Background</div>
+    <h2>Education & <em>Training</em></h2>
+    <div class="edu-list">
+      <div class="edu-item">
+        <div class="edu-icon"><i class="fa-solid fa-dna"></i></div>
+        <div>
+          <h3>Zoology Honours</h3>
+          <div class="school">Madhav Chandra Das College</div>
+          <span class="status-pill">Currently Pursuing</span>
+        </div>
+        <div class="when">Present</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-icon"><i class="fa-solid fa-computer"></i></div>
+        <div>
+          <h3>ADCA — Advanced Diploma in Computer Applications</h3>
+          <div class="school">Madhav Chandra Das College</div>
+          <span class="status-pill">Currently Pursuing</span>
+        </div>
+        <div class="when">Present</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="covers" style="background:var(--bg-alt);">
+  <div class="container">
+    <div class="eyebrow">Discography</div>
+    <h2>Cover <em>Songs</em></h2>
+    <div class="covers-note">
+      <i class="fa-solid fa-headphones-simple"></i>
+      <div>
+        <strong style="font-family:'Playfair Display',serif;font-size:17px;">All cover performances live on my YouTube channel.</strong>
+        <p style="color:var(--ink-soft);margin-top:6px;font-size:14px;">New covers added regularly — Bollywood, Sufi and folk renditions in my own voice.</p>
+      </div>
+    </div>
+    <div class="genre-cards">
+      <div class="genre-card">
+        <div class="icon"><i class="fa-solid fa-heart"></i></div>
+        <h3>Bollywood Romantic</h3>
+        <p>Reimagined classics and modern hits, sung with a personal, intimate touch.</p>
+      </div>
+      <div class="genre-card">
+        <div class="icon"><i class="fa-solid fa-moon"></i></div>
+        <h3>Sufi</h3>
+        <p>Soulful, meditative renditions rooted in longing and devotion.</p>
+      </div>
+      <div class="genre-card">
+        <div class="icon"><i class="fa-solid fa-leaf"></i></div>
+        <h3>Folk</h3>
+        <p>Earthy, rooted covers that carry the warmth of tradition.</p>
+      </div>
+    </div>
+    <div class="yt-cta">
+      <a href="https://youtube.com/@lyrical-moh" target="_blank" class="btn btn-primary"><i class="fa-brands fa-youtube"></i> Watch on YouTube</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-wrap">
+      <div class="contact-inner">
+        <div>
+          <div class="eyebrow" style="color:#F0D9B5;">Get In Touch</div>
+          <h2>Let's <em>Connect</em></h2>
+          <p style="opacity:0.8;max-width:380px;">Open to cover collaborations, feedback, and opportunities to sing.</p>
+          <div class="social-row">
+            <a href="https://instagram.com/music67213" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://youtube.com/@lyrical-moh" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="contact-list">
+          <a href="mailto:sohima0309@gmail.com">
+            <div class="ic"><i class="fa-regular fa-envelope"></i></div>
+            <div><div class="lbl">Email</div>sohima0309@gmail.com</div>
+          </a>
+          <a href="tel:+918595069417">
+            <div class="ic"><i class="fa-solid fa-phone"></i></div>
+            <div><div class="lbl">Phone</div>+91 8595069417</div>
+          </a>
+          <a href="https://instagram.com/music67213" target="_blank">
+            <div class="ic"><i class="fa-brands fa-instagram"></i></div>
+            <div><div class="lbl">Instagram</div>@music67213</div>
+          </a>
+          <a href="https://youtube.com/@lyrical-moh" target="_blank">
+            <div class="ic"><i class="fa-brands fa-youtube"></i></div>
+            <div><div class="lbl">YouTube</div>@lyrical-moh</div>
+          </a>
+          <div class="row">
+            <div class="ic"><i class="fa-solid fa-location-dot"></i></div>
+            <div><div class="lbl">Location</div>Gurgaon, Haryana, IN</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Mohima Shuklabaidya · <em>Vocalist</em> · © 2026 · All rights reserved
+</footer>
+
+</body>
+</html>
